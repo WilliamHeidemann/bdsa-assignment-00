@@ -7,11 +7,18 @@ public class Program
         Console.WriteLine("Type a year: ");
         var input = Console.ReadLine();
         if(input is null) return;
-        int year = Int16.Parse(input);
+        int year;
+        try
+        {
+            year = Int16.Parse(input);
+        }
+        catch
+        {
+            return;
+        }
         LeapYear leapYear = new();
         var isLeapYear = leapYear.IsLeapYear(year);
         var result = isLeapYear ? "yay" : "nay";
         Console.WriteLine(result);
     }
 }
-
